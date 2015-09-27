@@ -184,7 +184,7 @@ def createTree(dataSet, labels,features):
         return majorityCnt(classList)
     #print "in creat tree",labels
     bestFeat,bestInfoGain = chooseBestFeatureToSplit(dataSet,labels)
-    if bestInfoGain<0.025:
+    if bestInfoGain<0.035:
         return majorityCnt(classList)
     #if bestFeat==-1:
         #print labels[bestFeat],classList,majorityCnt(classList)
@@ -312,7 +312,7 @@ def run(myDat,labels,myTestDat):
     n = len(myTestDat)
     labels3=['age', 'workclass', 'fnlwgt', 'education', 'education-num', 'marital-status', 'occupation', 'relationship', 'race', 'sex', 'capital-gain', 'capital-loss', 'hours-per-week', 'native-country']
     i=1
-    f=open('task1.out2','w')
+    f=open('task1.out','w')
     f.write('Id,Target\n')
     #f.write(',')
     #f.write('Target')
@@ -351,12 +351,12 @@ def run2(myDat,labels,myTestDat):
     print "accurate rate is : ",correct/float(n)
 #############################################################
 print "11111"
-train_file = "test.gt"
-test_file="test.pred"
+train_file = "adult.data.txt"
+test_file="adult.test.txt"
 myDat,labels = CreateDataSet(train_file)
 myTestDat,labels=CreateDataSet(test_file)
 print "22222"
 print myDat
-run2(myDat,labels,myTestDat)
+run(myDat,labels,myTestDat)
 
 
